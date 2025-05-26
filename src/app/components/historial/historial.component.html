@@ -1,0 +1,44 @@
+<table class="tabla-datos">
+  <thead>
+    <tr>
+      <th>Edad</th>
+      <th>Sexo</th>
+      <th>Hueso</th>
+      <th>Médula ósea</th>
+      <th>Pulmón</th>
+      <th>Pleura</th>
+      <th>Peritoneo</th>
+      <th>Hígado</th>
+      <th>Cerebro</th>
+      <th>Piel</th>
+      <th>Cuello</th>
+      <th>Supraclavicular</th>
+      <th>Axilar</th>
+      <th>Mediastino</th>
+      <th>Abdominal</th>
+      <th>Predicción</th>
+      <th>Recomendación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let paciente of pacientes">
+      <td data-label="Edad">{{ paciente.age }}</td>
+      <td data-label="Sexo">{{ paciente.sex === '1' ? 'Masculino' : 'Femenino' }}</td>
+      <td data-label="Hueso">{{ paciente.bone }}</td>
+      <td data-label="Médula ósea">{{ paciente.boneMarrow }}</td>
+      <td data-label="Pulmón">{{ paciente.lung }}</td>
+      <td data-label="Pleura">{{ paciente.pleura }}</td>
+      <td data-label="Peritoneo">{{ paciente.peritoneum }}</td>
+      <td data-label="Hígado">{{ paciente.liver }}</td>
+      <td data-label="Cerebro">{{ paciente.brain }}</td>
+      <td data-label="Piel">{{ paciente.skin }}</td>
+      <td data-label="Cuello">{{ paciente.neck }}</td>
+      <td data-label="Supraclavicular">{{ paciente.supraclavicular }}</td>
+      <td data-label="Axilar">{{ paciente.axillar }}</td>
+      <td data-label="Mediastino">{{ paciente.mediastinum }}</td>
+      <td data-label="Abdominal">{{ paciente.abdominal }}</td>
+      <td data-label="Predicción">{{ paciente.resultado }}</td>
+      <td data-label="Recomendación">{{ paciente.advice }}</td>
+    </tr>
+  </tbody>
+</table>

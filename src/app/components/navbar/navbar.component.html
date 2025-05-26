@@ -1,0 +1,39 @@
+<nav class="navbar">
+  <div class="navbar__container">
+    <!-- Logo -->
+    <div class="navbar__logo">
+      <img src="https://www.weka.io/wp-content/uploads/files/2021/04/WEKA_Logo_1Color_2000x900.png" alt="TumorPredict" class="navbar__logo-img" />
+    </div>
+
+    <!-- Botón de menú hamburguesa -->
+    <div class="navbar__hamburger" (click)="toggleMenu()">
+      <div [class.active]="menuActive" class="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- Menú de navegación -->
+    <div class="navbar__menu" [class.active]="menuActive">
+      <div class="navbar__menu-item">
+        <a routerLink="/inicio" routerLinkActive="active" class="navbar__menu-link" (click)="closeMenu()">Inicio</a>
+      </div>
+      <div class="navbar__menu-item">
+        <a routerLink="/predicciones" routerLinkActive="active" class="navbar__menu-link" (click)="closeMenu()">Diagnósticos</a>
+      </div>
+      <div class="navbar__menu-item">
+        <a routerLink="/weka" routerLinkActive="active" class="navbar__menu-link" (click)="closeMenu()">Weka</a>
+      </div>
+      <div class="navbar__menu-item">
+        <a routerLink="/historial" routerLinkActive="active" class="navbar__menu-link" (click)="closeMenu()">Historial</a>
+      </div>
+    </div>
+
+    <!-- Acciones (botón principal, visible en escritorio) -->
+    <div class="navbar__actions">
+      <a routerLink="/codigo" class="navbar__link">Más Información</a>
+      <a routerLink="/predicciones" class="navbar__button">Solicitar prueba</a>
+    </div>
+  </div>
+</nav>

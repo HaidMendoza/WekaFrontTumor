@@ -1,0 +1,157 @@
+.tabla-datos {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  margin-top: 1.5rem;
+
+  thead {
+    background: linear-gradient(135deg, #6c4dd8, #5439b6);
+    color: white;
+
+    th {
+      padding: 0.6rem 0.8rem; /* reducido de 1rem 1.2rem */
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.85rem; /* reducido de 1rem */
+      user-select: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.15);
+      animation: slideFadeInDown 0.8s ease forwards;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      background: #faf9ff;
+      cursor: default;
+      animation: fadeSlideInUp 0.8s ease forwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-bottom: 1px solid #eee;
+
+      &:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 8px 20px rgba(108, 77, 216, 0.25);
+        background: #f0e7ff;
+      }
+
+      td {
+        padding: 0.6rem 0.8rem; /* reducido de 1rem 1.2rem */
+        text-align: center;
+        font-size: 0.8rem; /* reducido de 0.95rem */
+        color: #333;
+        user-select: text;
+        border-right: 1px solid #eee;
+        word-break: break-word;
+
+        &:last-child {
+          border-right: none;
+          font-weight: 600;
+          color: #6c4dd8;
+        }
+      }
+    }
+  }
+}
+
+/* Animaciones */
+@keyframes fadeSlideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividad mejorada */
+@media (max-width: 900px) {
+  .tabla-datos {
+    font-size: 0.85rem;
+
+    thead {
+      th {
+        padding: 0.8rem 0.6rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          padding: 0.8rem 0.6rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .tabla-datos {
+    font-size: 0.75rem;
+    overflow-x: hidden;
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      tr {
+        display: block;
+        margin-bottom: 1.2rem;
+        background: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+
+        td {
+          display: flex;
+          justify-content: space-between;
+          padding: 0.4rem 0;
+          border: none;
+          border-bottom: 1px solid #eee;
+          font-size: 0.75rem;
+          word-break: break-word;
+
+          &:last-child {
+            border-bottom: none;
+            color: #6c4dd8;
+            font-weight: 600;
+          }
+
+          &::before {
+            content: attr(data-label);
+            font-weight: 700;
+            color: #6c4dd8;
+            flex-basis: 50%;
+            max-width: 50%;
+            padding-right: 0.5rem;
+            white-space: nowrap;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}

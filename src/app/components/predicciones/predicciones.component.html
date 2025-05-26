@@ -1,0 +1,51 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="formulario-completo">
+
+  <!-- Texto superior -->
+  <div class="texto-superior">
+    <h2>REALIZA UN TEST RÁPIDO</h2>
+    <p>
+      Un tumor es una masa de tejido que surge cuando las células del cuerpo se dividen de forma anormal y
+      descontrolada...
+    </p>
+  </div>
+
+  <!-- Todos los campos agrupados -->
+  <div class="grupo-campos">
+
+    <!-- Edad -->
+    <div class="campo-form">
+      <label>Edad</label>
+      <input formControlName="age" type="number" required />
+      <div *ngIf="formulario.get('age')?.invalid && formulario.get('age')?.touched" class="error">
+        Por favor, introduce una edad válida.
+      </div>
+    </div>
+
+    <!-- Sexo -->
+    <div class="campo-form">
+      <label>Sexo</label>
+      <select formControlName="sex" required>
+        <option value="" disabled>Selecciona...</option>
+        <option value="1">Hombre</option>
+        <option value="0">Mujer</option>
+      </select>
+      <div *ngIf="formulario.get('sex')?.invalid && formulario.get('sex')?.touched" class="error">
+        Por favor, selecciona un sexo.
+      </div>
+    </div>
+
+    <!-- Campos de metástasis -->
+    <div *ngFor="let campo of metastasisCampos" class="campo-form">
+      <label>{{ campo.label }}</label>
+      <div class="radio-group">
+        <label><input type="radio" [formControlName]="campo.name" value="1" [attr.name]="campo.name" /> Sí</label>
+        <label><input type="radio" [formControlName]="campo.name" value="0" [attr.name]="campo.name" /> No</label>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Botón -->
+  <button type="submit" class="btn-enviar">Enviar diagnóstico</button>
+
+</form>

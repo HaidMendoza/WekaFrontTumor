@@ -1,0 +1,149 @@
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+.hero__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero__left, .hero__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 0.1);
+  background: #fff;
+}
+
+.hero__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.hero__cta {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Angular */
+.angular.hero__left {
+  border-left: 8px solid #dd0031;
+  animation: fadeSlideInLeft 0.8s ease forwards;
+  opacity: 0;
+}
+.angular .hero__cta {
+  background-color: #dd0031;
+  color: white;
+}
+.angular .hero__cta:hover {
+  background-color: #b70024;
+}
+.angular .hero__dashboard {
+  max-width: 220px;
+  margin: 0 auto;
+  animation: fadeSlideInRight 1s ease 0.2s forwards;
+  opacity: 0;
+}
+
+/* Spring Boot */
+.spring.hero__left {
+  border-left: 8px solid #6db33f;
+  animation: fadeSlideInLeft 0.8s ease 0.3s forwards;
+  opacity: 0;
+}
+.spring .hero__cta {
+  background-color: #6db33f;
+  color: white;
+}
+.spring .hero__cta:hover {
+  background-color: #55872b;
+}
+.spring .hero__dashboard {
+  max-width: 180px;
+  margin: 0 auto;
+  animation: fadeSlideInRight 1s ease 0.5s forwards;
+  opacity: 0;
+}
+
+/* Weka */
+.weka.hero__left {
+  border-left: 8px solid #7e57c2;
+  animation: fadeSlideInLeft 0.8s ease 0.6s forwards;
+  opacity: 0;
+}
+.weka .hero__cta {
+  background-color: #7e57c2;
+  color: white;
+}
+.weka .hero__cta:hover {
+  background-color: #5e35b1;
+}
+.weka .hero__dashboard {
+  max-width: 160px;
+  margin: 0 auto;
+  animation: fadeSlideInRight 1s ease 0.8s forwards;
+  opacity: 0;
+}
+
+/* Imagen derecha */
+.hero__right {
+  text-align: center;
+}
+
+.hero__image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__left, .hero__right {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Animaciones base para fade + slide */
+@keyframes fadeSlideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeSlideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
