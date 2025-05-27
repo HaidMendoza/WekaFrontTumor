@@ -21,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let paciente of pacientes" (click)="enviarDatos(paciente)">
+    <tr *ngFor="let paciente of pacientes" (click)="enviarDatos(paciente.advice)">
       <td data-label="Edad">{{ paciente.age }}</td>
       <td data-label="Sexo">{{ paciente.sex === '1' ? 'Masculino' : 'Femenino' }}</td>
       <td data-label="Hueso">{{ paciente.bone }}</td>

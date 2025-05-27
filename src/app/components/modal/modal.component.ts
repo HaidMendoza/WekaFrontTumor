@@ -30,7 +30,7 @@ export class ModalComponent implements OnInit {
 
   obtenerElementoSeleccionado(): void {
     this.pacienteCompleto = this.personasService.getElementoSeleccionado();
-    // Puedes usar `pacienteCompleto` si necesitas mostrar más datos en el modal
+    
     console.log('Paciente completo:', this.pacienteCompleto);
   }
 }

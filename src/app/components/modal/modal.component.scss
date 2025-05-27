@@ -30,9 +30,9 @@
 }
 
 mat-dialog-content {
-  overflow: hidden !important;  /* No scroll interno */
+  overflow: hidden !important; 
   max-height: none !important;
-  font-size: 0.9rem;             /* Texto más pequeño */
+  font-size: 0.9rem;             
   line-height: 1.4;
   color: #4B0082;
   user-select: text;
@@ -48,7 +48,7 @@ mat-dialog-actions {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #4B0082;                /* Morado WEKA */
+  color: #4B0082;                
   text-shadow: 0 1px 4px rgba(75, 0, 130, 0.5);
   letter-spacing: 0.03em;
   user-select: none;
@@ -64,13 +64,13 @@ mat-dialog-actions {
 }
 
 .diagnostico span.positivo {
-  color: #2E7D32; /* verde */
+  color: #2E7D32; 
   font-weight: 700;
   transition: color 0.3s ease;
 }
 
 .diagnostico span.negativo {
-  color: #C62828; /* rojo */
+  color: #C62828; 
   font-weight: 700;
   transition: color 0.3s ease;
 }
@@ -80,7 +80,7 @@ mat-dialog-actions {
   color: #4B0082;
   margin-top: 0.5rem;
   line-height: 1.5;
-  white-space: pre-wrap; /* para que respete saltos de línea */
+  white-space: pre-wrap; 
 }
 
 button[mat-button] {
@@ -100,7 +100,7 @@ button[mat-button]:hover {
   box-shadow: 0 4px 14px rgba(75, 0, 130, 0.25);
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   :host {
     width: 95vw;
