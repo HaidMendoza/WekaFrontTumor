@@ -12,6 +12,7 @@ import {
 import { trigger, transition, style, animate } from '@angular/animations';
 import { PersonasService } from '../../services/personas.service';
 import { Router } from '@angular/router';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 // Validador personalizado: máximo 2 metástasis en "Sí"
 function maxTwoMetastasisValidator(metastasisFields: string[]): ValidatorFn {

@@ -1,27 +1,42 @@
 import { Component } from '@angular/core';
 import { PersonasService } from '../../services/personas.service';
 import { CommonModule } from '@angular/common';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-historial',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, MatDialogModule],
   templateUrl: './historial.component.html',
-  styleUrl: './historial.component.scss'
+  styleUrls: ['./historial.component.scss']
 })
 export class HistorialComponent {
-  pacientes:any[] = [];
-  constructor(private personasServices:PersonasService){}
+  pacientes: any[] = [];
+
+  constructor(
+    private personasService: PersonasService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
-    this.obtenerHistorial()
-    
+    this.obtenerHistorial();
   }
 
-  obtenerHistorial(){
-    this.personasServices.getPersonas().subscribe((data) => {
+  obtenerHistorial() {
+    this.personasService.getPersonas().subscribe((data) => {
       this.pacientes = data;
-      console.log(this.pacientes);
     });
   }
 
+  enviarDatos(paciente: any) {
+  this.personasService.setElementoSeleccionado(paciente);
+
+ this.dialog.open(ModalComponent, {
+
+});
+
 }
+
+}
+

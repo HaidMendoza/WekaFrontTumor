@@ -28,26 +28,30 @@ export class AppComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    // Nodos con posiciones aleatorias
-    for (let i = 0; i < 20; i++) {
-      this.nodos.push({
-        top: Math.random() * 90,
-        left: Math.random() * 90
-      });
-    }
+ ngOnInit() {
+  const centerX = 150;
+  const centerY = 150;
+  const radius = 60;
+  const cantidad = 12;
 
-    // Líneas aleatorias
-    for (let i = 0; i < 25; i++) {
-      this.lineas.push({
-        x1: Math.random() * 300,
-        y1: Math.random() * 300,
-        x2: Math.random() * 300,
-        y2: Math.random() * 300
-      });
-    }
+  for (let i = 0; i < cantidad; i++) {
+    const angle = (i * 2 * Math.PI) / cantidad;
+    const top = centerY + radius * Math.sin(angle);
+    const left = centerX + radius * Math.cos(angle);
+    this.nodos.push({ top: (top / 300) * 100, left: (left / 300) * 100 });
 
-    // Carga inicial
-    setTimeout(() => this.cargando$.next(false), 1000);
+    // conectar al siguiente nodo (circularmente)
+    const nextIndex = (i + 1) % cantidad;
+    const nextAngle = ((i + 1) * 2 * Math.PI) / cantidad;
+    const x1 = centerX + radius * Math.cos(angle);
+    const y1 = centerY + radius * Math.sin(angle);
+    const x2 = centerX + radius * Math.cos(nextAngle);
+    const y2 = centerY + radius * Math.sin(nextAngle);
+    this.lineas.push({ x1, y1, x2, y2 });
   }
+
+  // Simular carga
+  setTimeout(() => this.cargando$.next(false), 1000);
+}
+
 }

@@ -155,3 +155,31 @@
     }
   }
 }
+
+/* NUEVO: Estilo para recomendación corta con tooltip */
+.recomendacion-corta {
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid #6c4dd8;
+  border-radius: 6px;
+  background-color: #f5f0ff;
+  color: #4b0082;
+  font-size: 0.75rem;
+  cursor: help;
+  user-select: none;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #d6caff;
+  }
+}
+
+/* Opcional para dispositivos táctiles */
+@media (hover: none) {
+  .recomendacion-corta {
+    cursor: default;
+  }
+}

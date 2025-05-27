@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:host {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #f4f0fb, #fdfcff);
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.tumor-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+img {
+  width: 100%;
+  height: 300px;
+}
+
+.tumor-card {
+  background: linear-gradient(to bottom, #ffffff, #f9f6fe);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(123, 84, 198, 0.25);
+  overflow: hidden;
+  transform: translateY(40px);
+  opacity: 0;
+  animation: floatUp 0.9s ease forwards;
+  animation-delay: var(--delay);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border: 1px solid #e8dbfb;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.025);
+    box-shadow: 0 22px 45px rgba(123, 84, 198, 0.4);
+
+    img {
+      transform: scale(1.05);
+      filter: brightness(1.15);
+    }
+  }
+}
+
+.tumor-img {
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  }
+
+  border-bottom: 1px solid #d6c8f9;
+}
+
+.tumor-content {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top, #f5efff, #ffffff);
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #6c3cb1;
+    text-shadow: 0 1px 1px rgba(108, 60, 177, 0.1);
+  }
+
+  p {
+    font-size: 1rem;
+    color: #4c3f66;
+    line-height: 1.6;
+    max-width: 90%;
+  }
+}
+
+/* Animaciones */
+@keyframes floatUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

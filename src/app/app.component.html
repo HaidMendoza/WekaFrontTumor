@@ -1,19 +1,23 @@
 <!-- Pantalla de carga -->
 <div *ngIf="cargando$ | async; else contenidoApp" class="pantalla-carga">
   <div class="red-algoritmica">
-    <div class="nodo"
-         *ngFor="let n of nodos"
-         [style.top.%]="n.top"
-         [style.left.%]="n.left">
-    </div>
-    <svg class="lineas" width="300" height="300">
+    <!-- SVG de líneas conectadas entre nodos -->
+    <svg class="lineas" viewBox="0 0 300 300">
       <line *ngFor="let l of lineas"
             [attr.x1]="l.x1"
             [attr.y1]="l.y1"
             [attr.x2]="l.x2"
             [attr.y2]="l.y2" />
     </svg>
+
+    <!-- Nodos animados orbitando -->
+    <div class="nodo"
+         *ngFor="let n of nodos"
+         [style.top.%]="n.top"
+         [style.left.%]="n.left">
+    </div>
   </div>
+
   <div class="texto-carga">🧠 Procesando datos con Weka...</div>
 </div>
 

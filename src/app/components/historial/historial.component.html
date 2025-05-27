@@ -21,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let paciente of pacientes">
+    <tr *ngFor="let paciente of pacientes" (click)="enviarDatos(paciente)">
       <td data-label="Edad">{{ paciente.age }}</td>
       <td data-label="Sexo">{{ paciente.sex === '1' ? 'Masculino' : 'Femenino' }}</td>
       <td data-label="Hueso">{{ paciente.bone }}</td>
@@ -38,7 +38,11 @@
       <td data-label="Mediastino">{{ paciente.mediastinum }}</td>
       <td data-label="Abdominal">{{ paciente.abdominal }}</td>
       <td data-label="Predicción">{{ paciente.resultado }}</td>
-      <td data-label="Recomendación">{{ paciente.advice }}</td>
+      <td data-label="Recomendación">
+        <div class="recomendacion-corta" title="{{ paciente.advice }}">
+          Presiona para ver recomendación
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>

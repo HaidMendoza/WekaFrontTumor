@@ -7,6 +7,17 @@ import { Component } from '@angular/core';
   styleUrl: './informacion-codigo.component.scss'
 })
 export class InformacionCodigoComponent {
+  angular(){
+    window.location.href = 'https://angular.dev/';
+  }
+  springboot(){
+    window.location.href = 'https://spring.io/projects/spring-boot';
+    
+  }
+  weka(){
+    window.location.href = 'https://www.weka.io/';
+    
+  }
 
 
 }

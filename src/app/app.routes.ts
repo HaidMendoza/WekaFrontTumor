@@ -4,6 +4,7 @@ import { PrediccionesComponent } from './components/predicciones/predicciones.co
 import { HistorialComponent } from './components/historial/historial.component';
 import { WekaComponent } from './components/weka/weka.component';
 import { InformacionCodigoComponent } from './components/informacion-codigo/informacion-codigo.component';
+import { TumoresComponent } from './components/tumores/tumores.component';
 export const routes: Routes = [
   {
     path: '',
@@ -29,5 +30,9 @@ export const routes: Routes = [
   {
     path: 'codigo',
     component: InformacionCodigoComponent
+  },
+  {
+    path: 'tumores',
+    component:TumoresComponent 
   }
 ];

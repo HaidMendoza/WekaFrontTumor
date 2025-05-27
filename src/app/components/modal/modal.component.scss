@@ -1,0 +1,118 @@
+:host {
+  display: block;
+  background-color: #fff;        /* Fondo blanco */
+  color: #4B0082;                /* Morado WEKA para textos */
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-sizing: border-box;
+  width: auto;
+  height: 60vh;
+  max-height: 700px;
+  overflow: hidden;              /* Sin scroll */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Animación suave al aparecer */
+  animation: fadeInModal 0.35s ease forwards;
+  box-shadow: 0 8px 24px rgba(75, 0, 130, 0.3);
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+mat-dialog-content {
+  overflow: hidden !important;  /* No scroll interno */
+  max-height: none !important;
+  font-size: 0.9rem;             /* Texto más pequeño */
+  line-height: 1.4;
+  color: #4B0082;
+  user-select: text;
+  transition: color 0.3s ease;
+}
+
+mat-dialog-actions {
+  padding-top: 1rem;
+  text-align: right;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #4B0082;                /* Morado WEKA */
+  text-shadow: 0 1px 4px rgba(75, 0, 130, 0.5);
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+.diagnostico .label,
+.recomendacion .label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #6A0DAD;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.diagnostico span.positivo {
+  color: #2E7D32; /* verde */
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.diagnostico span.negativo {
+  color: #C62828; /* rojo */
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.recomendacion .texto {
+  font-size: 0.85rem;
+  color: #4B0082;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  white-space: pre-wrap; /* para que respete saltos de línea */
+}
+
+button[mat-button] {
+  color: #4B0082;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 6px;
+  padding: 0.35rem 1rem;
+  user-select: none;
+  box-shadow: 0 2px 6px rgba(75, 0, 130, 0.15);
+}
+
+button[mat-button]:hover {
+  background-color: rgba(75, 0, 130, 0.12);
+  color: #2c005d;
+  box-shadow: 0 4px 14px rgba(75, 0, 130, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :host {
+    width: 95vw;
+    height: 90vh;
+    overflow: auto;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+  }
+  .titulo {
+    font-size: 1.5rem;
+  }
+  mat-dialog-content {
+    font-size: 0.8rem;
+  }
+}

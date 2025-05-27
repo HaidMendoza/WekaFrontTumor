@@ -28,9 +28,17 @@
       <div class="navbar__menu-item">
         <a routerLink="/historial" routerLinkActive="active" class="navbar__menu-link" (click)="closeMenu()">Historial</a>
       </div>
+      <div class="navbar__menu-item">
+        <a routerLink="/tumores" routerLinkActive="active" class="navbar__menu-link" (click)="closeMenu()">Tumores</a>
+      </div>
+
+      <!-- NUEVO: Más información para móviles -->
+      <div class="navbar__menu-item navbar__mobile-only">
+        <a routerLink="/codigo" class="navbar__button-mobile" (click)="closeMenu()">Más Información</a>
+      </div>
     </div>
 
-    <!-- Acciones (botón principal, visible en escritorio) -->
+    <!-- Acciones (visible en escritorio) -->
     <div class="navbar__actions">
       <a routerLink="/codigo" class="navbar__link">Más Información</a>
       <a routerLink="/predicciones" class="navbar__button">Solicitar prueba</a>
