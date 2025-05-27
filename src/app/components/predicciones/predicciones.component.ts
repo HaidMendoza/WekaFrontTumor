@@ -11,7 +11,9 @@ import {
 } from '@angular/forms';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { PersonasService } from '../../services/personas.service';
+import { Router } from '@angular/router';
 
+// Validador personalizado: máximo 2 metástasis en "Sí"
 function maxTwoMetastasisValidator(metastasisFields: string[]): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     let count = 0;
@@ -60,7 +62,7 @@ export class PrediccionesComponent {
     { label: 'Abdomen', name: 'abdominal' }
   ];
 
-  constructor(private fb: FormBuilder, private personasServices: PersonasService) {
+  constructor(private fb: FormBuilder, private personasServices: PersonasService, private router: Router) {
     this.formulario = this.fb.group({
       age: ['', Validators.required],
       sex: ['', Validators.required],
@@ -82,37 +84,22 @@ export class PrediccionesComponent {
     });
   }
 
-
   onSubmit() {
-    if (this.formulario.valid) {
-      const datos = this.formulario.value ;
-      this.personasServices.predecirPersonas(datos).subscribe({
-        next: (data: any) => {
-          this.enviado = true;
-          this.resultadoDiagnostico = data.resultado || 'Sin resultado';
-          alert('Diagnóstico enviado correctamente.');
-          this.formulario.reset({
-            age: '',
-            sex: '',
-            bone: '0',
-            boneMarrow: '0',
-            lung: '0',
-            pleura: '0',
-            peritoneum: '0',
-            liver: '0',
-            brain: '0',
-            skin: '0',
-            neck: '0',
-            supraclavicular: '0',
-            axillar: '0',
-            mediastinum: '0',
-            abdominal: '0',
-          });
-        },
-        error: () => alert('Ocurrió un error al enviar el diagnóstico.')
-      });
-    } else {
-      alert('Por favor, completa todos los campos obligatorios.');
-    }
+    console.log("esto si sirve");
+  
+    const pacienteData = this.formulario.value;
+    this.personasServices.predecirPersonas(pacienteData).subscribe({
+      next: (resultado) => {
+        console.log('Predicción exitosa:', resultado);
+        this.resultadoDiagnostico = resultado.prediccion;
+        
+      },
+      error: (error) => {
+        console.error('Error en la predicción:', error);
+        // Aquí puedes manejar el error si quieres mostrar algo al usuario
+      }
+    });
+    this.router.navigate(['/historial']);
   }
+  
 }

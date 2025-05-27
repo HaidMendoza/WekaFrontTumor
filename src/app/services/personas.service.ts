@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PersonasService {
-  private api_Obtener = 'http://localhost:8081/api/prediction/patients';
-  private api_Prediccion = 'http://localhost:8081/api/prediction'; 
+  private api_Obtener = 'https://weka-heart-3.onrender.com/api/prediction/patients';
+  private api_Prediccion = 'https://weka-heart-3.onrender.com/api/prediction'; 
 
   constructor(private http: HttpClient) {}
-
+  
   getPersonas(): Observable<any[]> {
     return this.http.get<any[]>(this.api_Obtener);
   }

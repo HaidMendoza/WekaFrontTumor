@@ -9,7 +9,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrls: ['./navbar.component.scss'] // ← aquí estaba mal
 })
 export class NavbarComponent { 
-   menuActive = true;
+   menuActive = false;
 
   toggleMenu() {
     this.menuActive = !this.menuActive;
